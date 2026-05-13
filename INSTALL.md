@@ -211,8 +211,9 @@ See [INSTALL-Windows.md](INSTALL-Windows.md)
 - `cd stellar-core`
 - `git submodule init`
 - `git submodule update`
-- Type `./autogen.sh`.
-- Type `./configure`   *(If configure complains about compiler versions, try `CXX=clang-20 ./configure` or `CXX=g++-14 ./configure` or similar, depending on your compiler.)*
+- `./autogen.sh`.
+- `mkdir build && cd build`
+- Type `../configure`  *(If configure complains about compiler versions, try `CXX=clang-20 ../configure` or `CXX=g++-14 ../configure` or similar, depending on your compiler.)*
 - Type `make` or `make -j<N>` (where `<N>` is the number of parallel builds, a number less than the number of CPU cores available, e.g. `make -j3`)
 - Type `make check` to run tests.
 - Type `make install` to install.
@@ -236,7 +237,9 @@ Here are sample steps to achieve this:
     export CXXFLAGS="$CFLAGS -stdlib=libc++"
     git clone https://github.com/stellar/stellar-core.git
     cd stellar-core/
-    ./autogen.sh && ./configure && make -j6
+    ./autogen.sh
+    mkdir build && cd build
+    ../configure && make -j6
 
 ## Building for ARM Linux (i.e. Raspberry Pi)
 
@@ -250,7 +253,9 @@ Here are sample steps to achieve this:
     export CXXFLAGS="$CFLAGS -stdlib=libc++"
     git clone https://github.com/stellar/stellar-core.git
     cd stellar-core/
-    ./autogen.sh && ./configure && make -j4
+    ./autogen.sh
+    mkdir build && cd build
+    ../configure && make -j4
 
 ## Building with Tracing
 
